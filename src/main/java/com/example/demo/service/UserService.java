@@ -2,9 +2,11 @@ package com.example.demo.service;
 
 import com.example.demo.domain.User;
 import com.example.demo.persistence.UserMapper;
+import org.apache.ibatis.annotations.Select;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Random;
 import java.util.UUID;
 
@@ -32,6 +34,10 @@ public class UserService {
 
     public User getById(String id) {
         return userMapper.getById(id);
+    }
+
+    public List<User> list() {
+        return userMapper.list();
     }
 
     public void create(User user) {

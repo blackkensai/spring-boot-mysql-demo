@@ -8,10 +8,17 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 public class UserController {
     @Autowired
     private UserService userService;
+
+    @GetMapping("/users")
+    public List<User> list() {
+        return userService.list();
+    }
 
     @GetMapping("/user/{id}")
     public User getById(@PathVariable("id") String id) {
